@@ -47,9 +47,9 @@ class SearchForm extends Component {
         >
           <option value="none">Select a category..</option>
           <option>planets</option>
-          <option>spaceships</option>
+          <option>starships</option>
           <option>vehicles</option>
-          <option>characters</option>
+          <option>people</option>
           <option>films</option>
           <option>species</option>
         </select>
