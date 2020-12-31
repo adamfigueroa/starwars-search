@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types"
 import AppContext from "../AppContext";
 
 class SearchForm extends Component {
@@ -7,12 +8,19 @@ class SearchForm extends Component {
     category: "none",
     touched: false,
   };
+
   static contextType = AppContext;
 
   handleSubmit = (e) => {
-      e.preventDefault();
-      this.context.getSearchQuery(this.state.query, this.state.category);
-  }
+    e.preventDefault();
+    this.context.getSearchQuery(this.state.query, this.state.category);
+  };
+
+  validateForm = () => {
+    if (this.state.query === "" || this.state.category === "none") {
+      return true;
+    }
+  };
 
   render() {
     return (
@@ -22,8 +30,13 @@ class SearchForm extends Component {
           type="text"
           className="searchQuery"
           name="query"
-          onChange={(e) => this.setState({ query: e.target.value })}
+          onChange={(e) =>
+            this.setState({ query: e.target.value, touched: true })
+          }
         />
+        {this.state.touched && this.state.query === "" && (
+          <p className="errorBox">Search term cannot be blank</p>
+        )}
         <label htmlFor="category">
           What category would you like to search?
         </label>
@@ -40,10 +53,21 @@ class SearchForm extends Component {
           <option>films</option>
           <option>species</option>
         </select>
-        <button type="submit">Search</button>
+        {this.state.category === "none" && this.state.touched && (
+          <p className="errorBoxCategory">Please select a category</p>
+        )}
+        <button type="submit" disabled={this.validateForm()}>
+          Search
+        </button>
       </form>
     );
   }
+};
+
+SearchForm.propTypes = {
+    query: PropTypes.string,
+    category: PropTypes.string,
+    touched: PropTypes.bool,
 }
 
 export default SearchForm;
