@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AppContext from "./AppContext";
+import SearchForm from "./components/SearchForm";
 import Header from "./Header";
 
 class App extends Component {
@@ -25,7 +26,9 @@ class App extends Component {
             blankResult: this.state.blankResult,
           }}
         >
-          <section className="searchBar"></section>
+          <section className="searchBar">
+            <SearchForm />
+          </section>
           <section className="resultWindow"></section>
         </AppContext.Provider>
       </main>
