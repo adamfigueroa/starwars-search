@@ -9,9 +9,14 @@ class SearchForm extends Component {
   };
   static contextType = AppContext;
 
+  handleSubmit = (e) => {
+      e.preventDefault();
+      this.context.getSearchQuery(this.state.query, this.state.category);
+  }
+
   render() {
     return (
-      <form className="searchForm">
+      <form className="searchForm" onSubmit={(e) => this.handleSubmit(e)}>
         <label htmlFor="query">Search term:</label>
         <input
           type="text"
@@ -27,13 +32,13 @@ class SearchForm extends Component {
           name="category"
           onChange={(e) => this.setState({ category: e.target.value })}
         >
-            <option value="none">Select a category..</option>
-            <option>planets</option>
-            <option>spaceships</option>
-            <option>vehicles</option>
-            <option>characters</option>
-            <option>films</option>
-            <option>species</option>
+          <option value="none">Select a category..</option>
+          <option>planets</option>
+          <option>spaceships</option>
+          <option>vehicles</option>
+          <option>characters</option>
+          <option>films</option>
+          <option>species</option>
         </select>
         <button type="submit">Search</button>
       </form>
