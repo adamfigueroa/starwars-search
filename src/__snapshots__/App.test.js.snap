@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component render the UI 1`] = `
+<main
+  className="App"
+>
+  <header>
+    <h1>
+      Star Wars API Search
+    </h1>
+  </header>
+  <section
+    className="searchBar"
+  >
+    <form
+      className="searchForm"
+      onSubmit={[Function]}
+    >
+      <label
+        htmlFor="query"
+      >
+        Search term:
+      </label>
+      <input
+        className="searchQuery"
+        name="query"
+        onChange={[Function]}
+        type="text"
+      />
+      <label
+        htmlFor="category"
+      >
+        What category would you like to search?
+      </label>
+      <select
+        className="categorySelect"
+        name="category"
+        onChange={[Function]}
+      >
+        <option
+          value="none"
+        >
+          Select a category..
+        </option>
+        <option>
+          planets
+        </option>
+        <option>
+          starships
+        </option>
+        <option>
+          vehicles
+        </option>
+        <option>
+          people
+        </option>
+        <option>
+          films
+        </option>
+        <option>
+          species
+        </option>
+      </select>
+      <button
+        disabled={true}
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </section>
+  <section
+    className="resultWindow"
+  >
+    <div>
+      <ul
+        className="resultList"
+      />
+    </div>
+  </section>
+</main>
+`;
