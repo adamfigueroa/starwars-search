@@ -1,0 +1,14 @@
+.queryResultHeader {
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    margin-bottom: 15px;
+    background-color: black;
+    color: yellow;
+}
+
+.resultList {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: circle;
+}

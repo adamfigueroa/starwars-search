@@ -1,0 +1,14 @@
+.searchBar {
+    display: flex;
+    justify-content: center;
+}
+
+.searchForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    min-height: 200px;
+    border: solid 2px black;
+}

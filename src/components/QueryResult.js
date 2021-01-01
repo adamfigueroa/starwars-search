@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AppContext from "../AppContext";
+import "./QueryResult.css"
 
 class QueryResult extends Component {
   static contextType = AppContext;
@@ -25,7 +26,7 @@ class QueryResult extends Component {
         {this.context.results.length > 0 && (
           <h2 className="queryResultHeader">Results:</h2>
         )}
-        <ul>{this.snagResults()}</ul>
+        <ul className="resultList">{this.snagResults()}</ul>
       </div>
     );
   }

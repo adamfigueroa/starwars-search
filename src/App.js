@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import AppContext from "./AppContext";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import QueryResult from "./components/QueryResult";
 import SearchForm from "./components/SearchForm";
 import Header from "./components/Header";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 class App extends Component {
   state = {
@@ -61,18 +62,20 @@ class App extends Component {
               blankResult: this.state.blankResult,
             }}
           >
-            <QueryResult />
+            <ErrorBoundary>
+              <QueryResult />
+            </ErrorBoundary>
           </AppContext.Provider>
         </section>
       </main>
     );
   }
-}
+};
 
 App.propTypes = {
   results: PropTypes.array,
-    blankResult: PropTypes.bool,
-    isItLoading: PropTypes.bool,
-}
+  blankResult: PropTypes.bool,
+  isItLoading: PropTypes.bool,
+};
 
 export default App;
