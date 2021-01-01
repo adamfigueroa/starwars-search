@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QueryResult Component renders the UI 1`] = `
+<div>
+  <h2
+    className="queryResultHeader"
+  >
+    Results:
+  </h2>
+  <ul
+    className="resultList"
+  >
+    <li>
+      Luke Skywalker
+    </li>
+  </ul>
+</div>
+`;
