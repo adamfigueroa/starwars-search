@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import AppContext from "./AppContext";
+import PropTypes from "prop-types"
+import QueryResult from "./components/QueryResult";
 import SearchForm from "./components/SearchForm";
-import Header from "./Header";
+import Header from "./components/Header";
 
 class App extends Component {
   state = {
@@ -40,21 +42,37 @@ class App extends Component {
     return (
       <main className="App">
         <Header />
-        <AppContext.Provider
-          value={{
-            results: this.state.results,
-            getSearchQuery: this.getSearchQuery,
-            blankResult: this.state.blankResult,
-          }}
-        >
-          <section className="searchBar">
+        <section className="searchBar">
+          <AppContext.Provider
+            value={{
+              results: this.state.results,
+              getSearchQuery: this.getSearchQuery,
+              blankResult: this.state.blankResult,
+            }}
+          >
             <SearchForm />
-          </section>
-          <section className="resultWindow"></section>
-        </AppContext.Provider>
+          </AppContext.Provider>
+        </section>
+        <section className="resultWindow">
+          <AppContext.Provider
+            value={{
+              results: this.state.results,
+              getSearchQuery: this.getSearchQuery,
+              blankResult: this.state.blankResult,
+            }}
+          >
+            <QueryResult />
+          </AppContext.Provider>
+        </section>
       </main>
     );
   }
+}
+
+App.propTypes = {
+  results: PropTypes.array,
+    blankResult: PropTypes.bool,
+    isItLoading: PropTypes.bool,
 }
 
 export default App;
